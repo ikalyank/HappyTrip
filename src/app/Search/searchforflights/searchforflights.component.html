@@ -1,0 +1,73 @@
+<div class="container gen">
+        <div class="row d-flex general-config" style="margin-top:5%;">
+            <div class="col-3" style="margin-left:7.5%;">
+                <mat-select placeholder="Trip Type" name="tavelDirection" [(ngModel)]="selectedTrip" id="TavelDirection">
+                    <mat-option *ngFor="let direction of travelDirection" [value]="direction">
+                        {{direction}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div class="col-3">
+                <mat-select placeholder="Passenger Type" name="PassengerType" [(ngModel)]="passengerType" id="passengerType">
+                    <mat-option *ngFor="let ptype of PassengerType" [value]="ptype">
+                        {{ptype}}
+                    </mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <!-- --------------------CITIES-------------------- -->
+        <div class="row d-flex justify-content-around p-4 cities">
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>From City</mat-label>
+                    <input matInput type="text" list="Fromcities" name="Fromcity" (change)="FilterAirports($event)" [(ngModel)]="selectedFromAirport">
+                  </mat-form-field>
+                <datalist id="Fromcities">
+                    <option *ngFor="let c of cities" [value]="c.IATA_code" >{{c.airport_name}}</option>
+                </datalist>
+            </div>
+            <!-- icon -->
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>To City</mat-label>
+                    <input matInput type="text" list="Tocities" name="Tocity" (change)="FilterAirports($event)" [(ngModel)]="selectedToAirport">
+                  </mat-form-field>
+                <datalist id="Tocities">
+                    <option *ngFor="let c of cities" [value]="c.IATA_code" >{{c.airport_name}}</option>
+                </datalist>
+            </div>
+        </div>
+        <!-- -----------DATES---------------- -->
+        <div class="row p-4 d-flex justify-content-around dates">
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>Departure date</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="departureDate">
+                    <!-- <input type="date" name="date" id="dates" matInput> -->
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>              
+            </div>
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>Return date</mat-label>
+                    <input matInput [matDatepicker]="pickerr" [disabled]="selectedTrip==='Oneway'" [(ngModel)]="returnDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #pickerr></mat-datepicker>
+                </mat-form-field>              
+            </div>
+        </div>
+        <!-- Form end -->
+        <div class="row">
+            <div class="col-5">
+                <button (click)="searchFlights()" class="btn d-flex">Search
+                    <mat-icon>arrow_right_alt</mat-icon>
+                </button>
+            </div>
+        </div>
+</div>
+

@@ -1,0 +1,25 @@
+<div class="flight-info mt-4 p-4" *ngFor="let n of FilteredFlights">
+    <div class="row d-flex justify-content-around">
+        <div class="col-2">
+            <button mat-button>
+                <mat-icon>flight</mat-icon>
+                {{n.Airlines}}
+            </button>
+        </div>
+        <div class="col-2">
+            <h2>15:24</h2>
+            <!-- <br> -->
+            <small>{{n.From_IATA_code}}</small>
+        </div>
+        <div class="col-2">
+            <h2>14:67</h2>
+            <small>{{n.To_IATA_code}}</small>
+        </div>
+        <div class="col-2">
+            <h3>{{5000|currency : 'INR'}}</h3>
+        </div>
+        <div class="col-2">
+            <button mat-raised-button style="background-color:rgb(49, 58, 166);color: white;" class="btn">Book <mat-icon>arrow_right_alt</mat-icon></button>
+        </div>
+    </div>
+</div>

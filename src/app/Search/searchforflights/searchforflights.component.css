@@ -1,0 +1,28 @@
+/* .card{
+    width: 50%;
+} */
+.btn{
+    transform: scale(0.95);
+    position: relative;
+    left: 195%;
+    background-color:#3F51B5 ;
+    color: white;
+}
+.btn:hover{
+    transform: scale(1);
+    transition: 0.35s;
+    cursor: pointer;
+    color: rgb(49, 58, 166);
+    background-color: white;
+    
+}
+.gen{
+    background-color: rgb(255, 255, 255);
+    border: 0.5px solid rgb(188, 187, 187);
+    padding-top: 20px;
+    padding-right: 10px; 
+    padding-bottom: 15px;
+    border-radius: 20px;
+    margin-top: 2%;
+    box-shadow: 1px 1px 1px rgb(193, 193, 193);
+}

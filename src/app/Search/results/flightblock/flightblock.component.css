@@ -1,0 +1,12 @@
+.flight-info{
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 10px;
+    margin-left: 5%;
+}
+.btn:hover{
+    transform: scale(1);
+    transition: 0.35s;
+    cursor: pointer;
+    color: rgb(49, 58, 166);
+    background-color: white;
+}
